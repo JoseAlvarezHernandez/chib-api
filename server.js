@@ -83,6 +83,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 ************************************************/
 
 const authRoute = require('./routes/auth');
+const userRoute = require('./routes/users');
 
 // Init get
 router.get('/', (req, res) => res.status(200).send({ status: 'up' }));
@@ -99,6 +100,7 @@ router.get('/api/swagger.json', (req, res) => {
 
 app.use(router);
 app.use(authRoute)
+app.use(userRoute)
 app.use((req, res, next) => res.status(403).send({ error: 'Method Not Allowed' }));
 
 /************************************************

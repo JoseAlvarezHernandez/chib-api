@@ -2,8 +2,6 @@ const jwt = require('jsonwebtoken')
 const APIUserCRUD = require('./../models/users')
 const crypto = require('crypto')
 
-module.exports = { tokenGeneration, tokenValidation, hashCode }
-
 function tokenGeneration(source) {
   const token = jwt.sign(
     {
@@ -44,3 +42,5 @@ function tokenValidation(authBearerString) {
 function hashCode(str) {
   return crypto.createHash('md5').update(str).digest('hex')
 }
+
+module.exports = { tokenGeneration, tokenValidation, hashCode }

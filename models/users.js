@@ -12,14 +12,14 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 const User = {
-  name: {type: String, unique: true, required: true },
+  name: {type: String, required: true },
   email: {type: String, unique: true, required: true },
   password: {type: String, required: true},
   birthDate: { type: Date, required: true},
   type: { type: String, enum: ['contractor', 'employee'], required: true},
-  occupation: {type: String},
-  jobDescription: {type: String},
-  price: {type: Number},
+  occupation: {type: String, default: ''},
+  jobDescription: {type: String, default: ''},
+  price: {type: Number, default: 0},
   createdBy: String,
   updatedBy: String,
   deleted: {type: Boolean, default: false}

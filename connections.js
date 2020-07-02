@@ -16,5 +16,5 @@ const usersConnectionChain = process.env.DBCONNECTION;
 mongoose.Promise = global.Promise;
 
 module.exports = {
-  usersConnectionChain: mongoose.createConnection(usersConnectionChain, { useNewUrlParser: true, autoIndex: false, useUnifiedTopology:true })
+  usersConnectionChain: mongoose.createConnection(usersConnectionChain, { useNewUrlParser: true, autoIndex: false, useUnifiedTopology:true, useFindAndModify: false })
 };

@@ -7,19 +7,19 @@
 const messages = require('./../message')
 const APIusersCRUD = require('./../models/users')
 const authUtil = require('./../utils/auth')
-const fields = ['name', 'email', 'status', 'homePage', 'created_at', 'updated_at']
+const fields = ['name', 'email', 'created_at', 'updated_at', 'phone', 'birthDate', 'type', 'jobDescription', 'occupation', 'price']
 
 const authentication = {
   login
 }
 
 function login(request, response, next) {
-  if (!request.body || request.body.username === undefined || request.body.password === undefined) {
+  if (!request.body || request.body.email === undefined || request.body.password === undefined) {
     response.status(400).send({ message: messages.badrequestuestError })
   } else {
     try {
       const credentials = {
-        email: request.body.username,
+        email: request.body.email,
         password: authUtil.hashCode(request.body.password),
       }
       authenticate(credentials, fields).then((user) => {

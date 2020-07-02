@@ -12,6 +12,8 @@ const messages = {
     notFoundUser: 'User not found.',
     notCreated: 'Your request couldn`t be executed.',
     successAccount: 'Your account has been successfully created.',
+    successUpdate: 'Your account has been successfully updated.',
+    userExists: 'This user already exists'
   }
   
   module.exports = messages;

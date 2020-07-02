@@ -38,7 +38,7 @@ const authentication = require('../controllers/auth')
  * definitions:
  *   UserLoginObject:
  *     properties:
- *       username:
+ *       email:
  *         type: string
  *       password:
  *         type: string

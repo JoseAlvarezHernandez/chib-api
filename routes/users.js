@@ -18,141 +18,48 @@ const users = require('../controllers/users')
 /**
  * @swagger
  * definitions:
+ *   Users:
+ *     type: array   
+ *     items: 
+ *       $ref: '#/definitions/APIUser'
  *   error:
  *     properties:
  *       code:
  *         type: integer
  *       message:
  *         type: string
- */
-/**
- * @swagger
- * definitions:
- *   UserStatus:
- *     properties: 
- *       status:
- *         type: number
- */
-/**
- * @swagger
- * definitions:
- *   UserUpdate:
- *     properties: 
- *       name:
+ *   APIUserNextStep:
+ *     properties:
+ *       occupation:
  *         type: string
- *       homePage:
+ *       jobDescription:
  *         type: string
- */
-/**
- * @swagger
- * definitions:
+ *       price:
+ *          type: number
  *   APIUser:
  *     properties: 
  *       name:
  *         type: string  
- *       username:
- *         type: string 
- *       password:
- *         type: string 
- *       homePage:
- *         type: string
- *       phone:
- *         type: number
- */
-/**
- * @swagger
- * definitions:
- *   APIUserSaved:
- *     properties: 
- *       name:
- *         type: string  
- *       username:
- *         type: string 
- *       password:
- *         type: string 
- *       homePage:
- *         type: string
- *       phone:
- *         type: number
- */
-/**
- * @swagger
- * definitions:
- *   UserDeleteObject:
- *     properties: 
- *       username:
- *         type: string
- */
-/**
- * @swagger
- * definitions:
- *   APIUserAddress:
- *     properties: 
- *       street:
- *         type: string  
- *       number:
- *         type: number 
- *       city:
- *         type: string
- *       state:
- *         type: string
- *       zipcode:
- *         type: number
- *       country:
- *         type: string
- */
-/**
- * @swagger
- * definitions:
- *   APIUserFavorites:
- *     properties: 
- *       account:
- *         type: number  
- *       alias:
- *         type: string 
  *       email:
- *         type: string
- *       max_amount:
- *         type: number
- *       bank:
- *         type: string
- *       name:
- *         type: string
- */
-/**
- * @swagger
- * definitions:
- *   UserGet:
- *     properties: 
- *       name:
- *         type: string  
- *       username:
  *         type: string 
- *       created_at:
+ *       password:
+ *         type: string 
+ *       homePage:
+ *         type: string
+ *       phone:
+ *         type: number
+ *       birthDate:
  *         type: string
  *         format: date
- *       phone:
- *         type: number
+ *       type:
+ *         type: string
+ *         enum: 
+ *            - employee
+ *            - contractor
  */
 /**
-* @swagger
-* definitions:
-*   Users:
-*     type: array   
-*     items: 
-*       $ref: '#/definitions/UserGet'
-*/
-/**
-* @swagger
-* definitions:
-*   Favorites:
-*     type: array   
-*     items: 
-*       $ref: '#/definitions/APIUserFavorites'
-*/
-/**
  * @swagger
- * /api/users:
+ * /api/users/{email}:
  *   get:
  *     tags:
  *       - Users
@@ -165,6 +72,11 @@ const users = require('../controllers/users')
  *       - name: Authorization
  *         description: Bearer authorization string
  *         in: header
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: users emails
+ *         in: path
  *         required: true
  *         type: string
  *     responses:
@@ -186,7 +98,7 @@ const users = require('../controllers/users')
  *           $ref: '#/definitions/error'
  */
 
-router.get(route, users.getUser)
+router.get(`${route}/:email`, users.getUser)
 
 /**
  * @swagger
@@ -210,7 +122,7 @@ router.get(route, users.getUser)
  *       200:
  *         description: Sucessful request
  *         schema:
- *           $ref: '#/definitions/APIUserSaved'
+ *           $ref: '#/definitions/APIUser'
  *       400:
  *         description: Bad request 
  *         schema:
@@ -226,3 +138,80 @@ router.get(route, users.getUser)
 */
 
 router.post(route, users.addUser)
+
+/**
+ * @swagger
+ * /api/users:
+ *   put:
+ *     tags:
+ *       - Users
+ *     description: Saves User
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: Authorization
+ *         description: Authorization token
+ *         in: header
+ *         required: true
+ *       - name: User
+ *         description: Users next step registration
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/APIUserNextStep'
+ *     responses:
+ *       200:
+ *         description: Sucessful request
+ *         schema:
+ *           $ref: '#/definitions/APIUser'
+ *       400:
+ *         description: Bad request 
+ *         schema:
+ *           $ref: '#/definitions/error'
+ *       401:
+ *         description: Unauthorized access 
+ *         schema:
+ *           $ref: '#/definitions/error'
+ *       404:
+ *         description: User not found 
+ *         schema:
+ *           $ref: '#/definitions/error'
+*/
+
+router.put(route, users.updateUser)
+
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     tags:
+ *       - Users
+ *     description: Get users
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Sucessful request
+ *         schema:
+ *           $ref: '#/definitions/Users'
+ *       400:
+ *         description: Bad request 
+ *         schema:
+ *           $ref: '#/definitions/error'
+ *       401:
+ *         description: Unauthorized access 
+ *         schema:
+ *           $ref: '#/definitions/error'
+ *       404:
+ *         description: User not found 
+ *         schema:
+ *           $ref: '#/definitions/error'
+ */
+
+router.get(route, users.getAll)
+
+module.exports = router
