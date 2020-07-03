@@ -1,5 +1,6 @@
-# chib-api
-Chib API 
+![API version](https://img.shields.io/badge/version-1.0-brightgreen.svg)
+# CHIB API
+Welcome to Chib API v1
 
 You can use my hosted api at 
 
@@ -7,7 +8,16 @@ You can use my hosted api at
 https://chib-api.herokuapp.com/api-docs
 ```
 
-## Installation process
+## Getting Started
+
+1.	Installation process
+Run `npm install` to get API dependencies.
+
+2.	API references
+Go to `/api-docs` to access the Swagger documentation for this API.
+
+3.	API Developer documentation
+Go to `/api-docs/#!` to access code documentation for this API.
 
 
 ## Environment variables
