@@ -13,20 +13,30 @@ https://chib-api.herokuapp.com/api-docs
 1.	Installation process
 Run `npm install` to get API dependencies.
 
-2.	API references
-Go to `/api-docs` to access the Swagger documentation for this API.
+2. Set up your environment variables
 
-3.	API Developer documentation
-Go to `/api-docs/#!` to access code documentation for this API.
+You will have to create a `.env` file at root directory with the variables needed
+    
+* PORT
+* API_URL
+* DBCONNECTION
+* CURRENCY_URL
 
-
-## Environment variables
-
-    * PORT
-    * API_URL
-    * DBCONNECTION
-    * CURRENCY_URL
 for the currency url you can use 
 ```
 https://free.currconv.com/api/v7/convert?q=MXN_USD&compact=ultra&apiKey=525ded03e627e09dbdc3
 ```
+
+3. To Run your API you should execute 
+```
+npm start
+```
+
+or 
+
+```
+npm run start:dev
+```
+
+3.	API Developer documentation
+Go to `/api-docs/` to access code documentation for this API.
