@@ -35,18 +35,18 @@ Run `npm install` to get API dependencies.
     `mongodb://user:password@sub.mlab.com:15370/dbname`
 
 3. To Run your API you should execute 
-```
-npm start
-```
+    ```
+    npm start
+    ```
 
-or 
+    or 
 
-```
-npm run start:dev
-```
+    ```
+    npm run start:dev
+    ```
 
 3.	API Developer documentation
-Go to `/api-docs/` to access code documentation for this API.
+    Go to `/api-docs/` to access code documentation for this API.
 
 You are all set up!!
 good luck
