@@ -34,7 +34,7 @@ const configs = {
 };
 
 /** User schema object*/
-var userSchema = new Schema(User, configs);
+const userSchema = new Schema(User, configs);
 
 /** User model instance */
 module.exports = connections.usersConnectionChain.model('User', userSchema, 'users');

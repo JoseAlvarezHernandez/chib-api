@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JoseAlvarezHernandez/chib-api#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parse": "^0.1.0",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",

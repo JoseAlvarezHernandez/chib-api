@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const APIUserCRUD = require('./../models/users')
 const crypto = require('crypto')
+const axios = require('axios')
 
 function tokenGeneration(source) {
   const token = jwt.sign(
@@ -43,4 +44,9 @@ function hashCode(str) {
   return crypto.createHash('md5').update(str).digest('hex')
 }
 
-module.exports = { tokenGeneration, tokenValidation, hashCode }
+async function USDcurrency(){
+  let result = await axios.get(process.env.CURRENCY_URL)
+  return result.data.MXN_USD
+}
+
+module.exports = { tokenGeneration, tokenValidation, hashCode, USDcurrency }
