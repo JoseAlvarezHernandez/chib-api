@@ -43,3 +43,6 @@ npm run start:dev
 
 3.	API Developer documentation
 Go to `/api-docs/` to access code documentation for this API.
+
+You are all set up!!
+good luck
