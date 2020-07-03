@@ -10,6 +10,11 @@ https://chib-api.herokuapp.com/api-docs
 
 ## Getting Started
 
+Assuming you already have installed Node and mongodb follow the next steps if not you can find information about how to install them base on your OS 
+
+[Mongo DB][https://docs.mongodb.com/manual/installation/]
+[Node JS][https://nodejs.org/en/download/current/]
+
 1.	Installation process
 Run `npm install` to get API dependencies.
 
