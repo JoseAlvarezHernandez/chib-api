@@ -16,6 +16,7 @@ const User = {
   email: {type: String, unique: true, required: true },
   password: {type: String, required: true},
   birthDate: { type: Date, required: true},
+  phone: {type: Number, required: true},
   type: { type: String, enum: ['contractor', 'employee'], required: true},
   occupation: {type: String, default: ''},
   jobDescription: {type: String, default: ''},
