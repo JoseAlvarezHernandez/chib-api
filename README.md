@@ -1,6 +1,12 @@
 # chib-api
 Chib API 
 
+You can use my hosted api at 
+
+```
+https://chib-api.herokuapp.com/api-docs
+```
+
 ## Installation process
 
 
