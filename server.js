@@ -9,6 +9,9 @@ require('dotenv').config()
 /** Express instance */
 const express = require('express')
 
+/** Cors */
+const cors = require('cors')
+
 /** Path instance */
 const path = require('path')
 
@@ -59,12 +62,10 @@ const options = {
 const swaggerSpec = swaggerJSDoc(options)
 
 /** App Access Control configurations */
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, OPTIONS, FETCH')
-    next()
-});
+app.use(cors({
+  origin: '*', 
+  optionsSuccessStatus: 200
+}))
 
 app.use(bodyParser.urlencoded({
     extended: true,
