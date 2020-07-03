@@ -27,6 +27,9 @@ for the currency url you can use
 https://free.currconv.com/api/v7/convert?q=MXN_USD&compact=ultra&apiKey=525ded03e627e09dbdc3
 ```
 
+An example of the db environment variable structure you have to set is: 
+`mongodb://user:password@sub.mlab.com:15370/dbname`
+
 3. To Run your API you should execute 
 ```
 npm start
