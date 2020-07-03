@@ -19,9 +19,7 @@ Assuming you already have installed Node and mongodb follow the next steps if no
 1.	Installation process
 Run `npm install` to get API dependencies.
 
-2. Set up your environment variables
-
-You will have to create a `.env` file at root directory with the variables needed
+2. Set up your environment variables, You will have to create a `.env` file at root directory with the variables needed
     
 * PORT
 * API_URL
