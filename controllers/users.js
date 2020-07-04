@@ -42,9 +42,9 @@ async function updateUser(request, response, next){
 
 async function getAll(request, response, next) {
     const users = await APIusersCRUD.find({ type:'employee'}, fields)
-    //const convertion = await authUtil.USDcurrency()
+    const convertion = await authUtil.USDcurrency()
     const newUsers = users.map(user => {
-        return ({ ...user._doc}) //(user.price * convertion).toFixed(2) })
+        return ({ ...user._doc, price: (user.price * convertion).toFixed(2) })
     })
     response.status(200).send(newUsers)
 }
