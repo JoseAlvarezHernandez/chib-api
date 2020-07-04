@@ -46,7 +46,7 @@ function hashCode(str) {
 
 async function USDcurrency(){
   let result = await axios(process.env.CURRENCY_URL)
-  return result?.data?.MXN_USD || 0.045
+  return result.data.MXN_USD //|| 0.045
 }
 
 module.exports = { tokenGeneration, tokenValidation, hashCode, USDcurrency }
